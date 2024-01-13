@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DAMS</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <nav class="navigation-bar">
+        <div class="nav-link">
+             <ul>
+                 <li>
+                     <a class="home" href="#">DAMS</a>
+                 </li>
+             </ul>
+        </div>
+        <div class="nav-link">
+            <ul>
+                 <li>
+                     <a href="login.php">Login</a>
+                 </li>
+             </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1 class="header4">Doctor Appointment Management System</h1>
+    </div>
+
+

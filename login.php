@@ -1,0 +1,108 @@
+<?php
+    session_start();
+    include "connection.php";
+    include "header.php";
+
+function clean_input($string): string
+{
+    $string = trim($string);
+    $string = stripslashes($string);
+    $string = htmlspecialchars($string);
+    return $string;
+}
+
+$email_ERR = "";
+$passcode_ERR = "";
+
+if (isset($_POST['login_submit'])) {
+    $patient_email_address = clean_input($_POST['patient_email_address']);
+    $patient_password = $_POST['patient_password'];
+
+// Email validation
+    if (empty($patient_email_address)) {
+        $email_ERR = "Email is required";
+    } elseif (!filter_var($patient_email_address, FILTER_VALIDATE_EMAIL)) {
+        $email_ERR = "Invalid email address";
+    }
+
+// Passcode validation
+    if (empty($patient_password)) {
+        $passcode_ERR = "Passcode is required";
+    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $patient_password)) {
+        $passcode_ERR = "Invalid Passcode. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 digit, 1 special character, and be 8-16 characters long.";
+    }
+
+    if(empty($email_ERR) && empty($passcode_ERR)) {
+        $query = "SELECT * FROM patient_table WHERE patient_email_address = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "s", $patient_email_address);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if( mysqli_num_rows($result) > 0) {
+
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            foreach ($rows as $row) {
+
+                if ($row['email_verify'] == "Yes") {
+                    // Verify the password using password_verify
+                    if (password_verify($patient_password, $row['patient_password'])) {
+                        // Login successful
+                        $_SESSION['user_email'] = $patient_email_address;
+
+                        // Redirect to a welcome page or perform any other desired actions
+                        header("Location: dashboard.php");
+                        exit();
+                    }
+                    else {
+                        $_SESSION['error'] = "Invalid password";
+                    }
+                }
+                else {
+                    $_SESSION['error'] = "Please first verify your email address";
+                }
+            }
+        }
+        else {
+            $_SESSION['error'] = "Wrong Email Address";
+        }
+
+
+
+        mysqli_stmt_close($stmt);
+
+    }
+}
+
+if (isset($_SESSION['error'])) {
+    echo '<div class="error-message">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']);
+}
+
+
+?>
+
+<section class="container">
+    <header>Login</header>
+    <form class="form" id="form" method="post" action="">
+        <div class="input-box">
+            <label>Patient Email Address <span class="required">*</span></label>
+            <input type="text" id="patient_email_address" name="patient_email_address"  placeholder="example@gmail.com" autofocus>
+            <div class="error"><?php echo $email_ERR ?></div>
+        </div>
+        <div class="input-box">
+            <label>Patient Password <span class="required">*</span></label>
+            <input type="password" id="patient_password" name="patient_password" placeholder="Type passcode">
+            <div class="error"><?php echo $passcode_ERR ?></div>
+        </div>
+        <input type="submit" name="login_submit" id="btn" value="Login"/>
+        <p>
+            <a href="register.php">Register</a>
+        </p>
+    </form>
+</section>
+
+<?php
+    include "footer.php";
+?>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/docsys.iml" filepath="$PROJECT_DIR$/.idea/docsys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../doctor-appointment/.idea/doctor-appointment.iml" filepath="$PROJECT_DIR$/../doctor-appointment/.idea/doctor-appointment.iml" />
+    </modules>
+  </component>
+</project>

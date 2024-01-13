@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*background-color: #fff;*/
+}
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+    border-bottom: 1px solid #e5e5e5;
+}
+.navigation-bar .nav-link ul li {
+    list-style: none;
+}
+
+.navigation-bar .nav-link ul li .home {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-bar .nav-link ul li .home:hover {
+    color: black;
+}
+
+
+.navigation-bar .nav-link ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.navigation-bar .nav-link ul li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.hero-section {
+    padding: 2.5rem 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.header4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+/*register.php or login.php*/
+.success-message, .error-message {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    margin: 1rem auto;
+    max-width: 700px;
+    width: 100%;
+}
+
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 700px;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+}
+
+.container header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.container .form {
+    padding: 0.75rem 1.25rem;
+}
+
+.form .input-box {
+    width: 100%;
+    margin-top: 15px;
+}
+.input-box label {
+    color: #333;
+}
+
+.input-box .required {
+    color: red;
+}
+
+.input-box .error {
+    color: #B94A48;
+}
+
+
+
+
+.form .input-box input,.form .input-box select {
+    position: relative;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0.475rem 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form .input-box input:focus, .form .input-box select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+
+#btn {
+    display: block;
+    margin:20px auto;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+#btn:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+    cursor: pointer;
+}
+
+.form p a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.form p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 500px) {
+
+    .hero-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .form .column {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+
+
+
+
+
+
+
