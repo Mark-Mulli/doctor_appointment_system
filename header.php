@@ -18,6 +18,7 @@
                  </li>
              </ul>
         </div>
+
         <div class="nav-link">
             <ul>
                  <li>
@@ -25,6 +26,7 @@
                  </li>
              </ul>
         </div>
+
     </nav>
 
     <div class="hero-section">
