@@ -3,7 +3,7 @@
     include "connection.php";
     include "header.php";
 
-function clean_input($string): string
+function clean_input($string)
 {
     $string = trim($string);
     $string = stripslashes($string);
@@ -49,7 +49,8 @@ if (isset($_POST['login_submit'])) {
                     // Verify the password using password_verify
                     if (password_verify($patient_password, $row['patient_password'])) {
                         // Login successful
-                        $_SESSION['user_email'] = $patient_email_address;
+                        $_SESSION['patient_id'] = $row['patient_id'];
+                        $_SESSION['patient_name'] = $row['patient_first_name'] . ' ' . $row['patient_last_name'];
 
                         // Redirect to a welcome page or perform any other desired actions
                         header("Location: dashboard.php");

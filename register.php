@@ -14,7 +14,7 @@ $p_contact_ERR = "";
 $p_address_ERR = "";
 $p_p_code_ERR = "";
 
-function clean_input($string): string
+function clean_input($string)
 {
     $string = trim($string);
     $string = stripslashes($string);

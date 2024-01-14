@@ -1,5 +1,12 @@
 <?php
-    echo 'Karibu sana';
+    include "header.php";
+?>
+
+
+
+
+<?php
+include "footer.php";
 ?>
 
 

@@ -7,6 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="doctor-appointment" />
+    <orderEntry type="module" module-name="doctor-appointment-management-system" />
   </component>
 </module>
