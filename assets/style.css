@@ -248,9 +248,7 @@ body {
 
 }
 
-.content-wrapper {
-    transition: margin 0.3s ease;
-}
+
 
 @media screen and (max-width:909px)  {
     .navbar .nav_nav {
@@ -279,7 +277,21 @@ body {
     }
 }
 
+@media screen and (min-width: 909px) {
+
+    .card {
+        max-width: 50%;
+        margin: 1rem auto;
+    }
+
+}
+
+
 /*cards*/
+.content-wrapper {
+    transition: margin 0.3s ease;
+}
+
 .card {
     position: relative;
     display: flex;
