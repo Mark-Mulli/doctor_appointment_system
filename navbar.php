@@ -8,7 +8,7 @@
             <a href="profile.php">Profile</a>
         </li>
         <li>
-            <a href="#">Logout</a>
+            <a href="logout.php">Logout</a>
         </li>
     </ul>
 

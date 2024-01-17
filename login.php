@@ -52,6 +52,7 @@ if (isset($_POST['login_submit'])) {
                         $_SESSION['patient_id'] = $row['patient_id'];
                         $_SESSION['patient_name'] = $row['patient_first_name'] . ' ' . $row['patient_last_name'];
 
+
                         // Redirect to a welcome page or perform any other desired actions
                         header("Location: dashboard.php");
                         exit();

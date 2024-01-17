@@ -23,7 +23,14 @@
         <div class="nav-link">
             <ul>
                  <li>
+                     <?php
+                     if(!isset($_SESSION['patient_id']))
+                     {
+                     ?>
                      <a href="login.php">Login</a>
+                         <?php
+                     }
+                     ?>
                  </li>
              </ul>
         </div>

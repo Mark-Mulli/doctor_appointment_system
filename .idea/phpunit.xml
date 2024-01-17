@@ -5,6 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/../doctor-appointment/class/dompdf/tests" />
         <option value="$PROJECT_DIR$/../doctor-appointment/class/dompdf/lib/php-font-lib/tests" />
+        <option value="$PROJECT_DIR$/../doctor-appointment-management-system/class/dompdf/lib/php-font-lib/tests" />
+        <option value="$PROJECT_DIR$/../doctor-appointment-management-system/class/dompdf/tests" />
       </list>
     </option>
   </component>
