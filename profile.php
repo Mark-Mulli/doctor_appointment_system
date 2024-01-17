@@ -89,9 +89,13 @@ if (isset($_POST['edit_profile'])) {
         $p_p_code_ERR = "Must be of 5 digits";
     }
 
-    // If all validations pass, proceed with registration
-    if (empty($email_ERR) && empty($passcode_ERR) && empty($conf_pass_ERR) && empty($p_first_ERR) && empty($p_last_ERR) && empty($p_dob_ERR) && empty($p_gender_ERR) && empty($p_contact_ERR) && empty($p_address_ERR) && empty($p_p_code_ERR)) {
-        include "update_profile.php";
+    // If all validations pass, proceed with editing
+    if (empty($email_ERR) && empty($p_first_ERR) && empty($p_last_ERR) && empty($p_dob_ERR) && empty($p_gender_ERR) && empty($p_contact_ERR) && empty($p_address_ERR) && empty($p_p_code_ERR)) {
+        //logic for editing
+
+    }
+    else {
+        $_SESSION['err'] = "Error in updating your profile. Please confirm your details";
     }
 }
 
@@ -100,10 +104,10 @@ if (isset($_POST['edit_profile'])) {
 <div class="container_fluid">
     <?php include "navbar.php";
 
-//    if (isset($_SESSION['error_message'])) {
-//        echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
-//        unset($_SESSION['error_message']); // Clear the message
-//    }
+    if (isset($_SESSION['err'])) {
+        echo '<div class="error-message" style="transition: margin 0.3s ease">' . $_SESSION['err'] . '</div>';
+        unset($_SESSION['err']); // Clear the message
+    }
     ?>
 
 
@@ -226,7 +230,7 @@ if (isset($_POST['edit_profile'])) {
         var navlinks = document.getElementById("nav-links");
         var menu = document.getElementById("menu-icon");
         var close = document.getElementById("close-icon");
-        var contentWrapper = document.querySelector(".content-wrapper");
+        var message = document.querySelector(".error-message");
 
         if (navlinks.style.left === "0px" || navlinks.style.left === "0%") {
             hideMenu();
@@ -238,14 +242,14 @@ if (isset($_POST['edit_profile'])) {
             navlinks.style.left = "0";
             menu.style.display = "none";
             close.style.display = "block";
-            contentWrapper.style.marginTop = "200px";
+            message.style.marginTop = "200px";
         }
 
         function hideMenu() {
             navlinks.style.left = "-300%";
             menu.style.display = "block";
             close.style.display = "none";
-            contentWrapper.style.marginTop = "0";
+            message.style.marginTop = "1rem";
         }
         function hideMenuOnResize() {
             if (window.innerWidth > 909) {
@@ -294,3 +298,7 @@ if (isset($_POST['edit_profile'])) {
     }
 
 </script>
+
+<?php
+include "footer.php";
+?>

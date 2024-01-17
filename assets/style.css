@@ -275,6 +275,9 @@ body {
     .navbar #icon {
         display: block;
     }
+    .success-message, .error-message {
+        max-width: 100%;
+    }
 }
 
 @media screen and (min-width: 909px) {
