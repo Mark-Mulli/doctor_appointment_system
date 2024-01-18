@@ -124,7 +124,7 @@ if (isset($_POST['edit_profile'])) {
                     $mail->Host = 'smtp.gmail.com'; // SMTP server
                     $mail->SMTPAuth = true;
                     $mail->Username = 'markmulli001@gmail.com';
-                    $mail->Password = 'ibqecwpuitpdxtkj';
+                    $mail->Password = '****';
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
 
@@ -225,6 +225,7 @@ function performUpdate($conn, $first_name, $last_name, $dob, $gender, $contact_n
 
                     <!--    edit profile form-->
                     <form id="editForm" style="display: none;" action="" method="post" class="form">
+                        <div class="info-message">To perform an email update, please edit the email field first without changing the other fields.</div>
                         <div class="input-box">
                             <label>Patient Email Address <span class="required">*</span></label>
                             <input type="text" id="patient_email_address" name="patient_email_address"  placeholder="example@gmail.com" autofocus >
