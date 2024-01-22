@@ -1,4 +1,37 @@
 <?php
+
+$email_err = "";
+$passcode_err = "";
+
+function clean_input($data) {
+    $data = htmlspecialchars($data);
+    $data = trim($data);
+    $data = stripslashes($data);
+    return $data;
+}
+
+
+if(isset($_POST['admin_login'])) {
+    $admin_email = clean_input($_POST['admin_email']);
+    $admin_password = $_POST['admin_password'];
+
+    if (empty($admin_email)) {
+        $email_err = "Please enter your email address";
+    } elseif (!filter_var($admin_email, FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Invalid email address";
+    }
+    if (empty($admin_password)) {
+        $passcode_err = "Please enter your passcode";
+    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $admin_password)) {
+        $passcode_err = "Invalid Passcode. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 digit, 1 special character, and be 8-16 characters long.";
+    }
+
+    if (empty($email_err) && empty($passcode_err)) {
+        //logic for login
+    }
+
+}
+
 ?>
 
 <!doctype html>
@@ -86,22 +119,27 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .input .error {
+            color: #B94A48;
+        }
 
     </style>
 </head>
 <body>
    <main class="form-signin">
-       <form action="" method="">
+       <form action="" method="post">
            <h1 class="head">Doctor Appointment Management System</h1>
-           <span id="error"></span>
+
            <div class="input">
-               <input type="text" placeholder="Enter Email Address...">
+               <input type="text" name="admin_email" placeholder="Enter Email Address...">
+               <div class="error"><?php echo $email_err?></div>
            </div>
            <div class="input">
-               <input type="password" placeholder="Password">
+               <input type="password" name="admin_password" placeholder="Password">
+               <div class="error"><?php echo $passcode_err?></div>
            </div>
            <div class="input">
-               <button type="submit" class="button">Login</button>
+               <button type="submit" class="button" name="admin_login">Login</button>
            </div>
        </form>
    </main>
