@@ -27,7 +27,7 @@ if(isset($_POST['admin_login'])) {
     }
 
     if (empty($email_err) && empty($passcode_err)) {
-        //logic for login
+        //login procedure
     }
 
 }
