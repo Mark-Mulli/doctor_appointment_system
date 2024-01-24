@@ -1,4 +1,5 @@
 <?php
+include 'conn.php';
 
 $email_err = "";
 $passcode_err = "";
@@ -12,22 +13,80 @@ function clean_input($data) {
 
 
 if(isset($_POST['admin_login'])) {
-    $admin_email = clean_input($_POST['admin_email']);
-    $admin_password = $_POST['admin_password'];
+    $email = clean_input($_POST['admin_email']);
+    $password = $_POST['admin_password'];
 
-    if (empty($admin_email)) {
+    if (empty($email)) {
         $email_err = "Please enter your email address";
-    } elseif (!filter_var($admin_email, FILTER_VALIDATE_EMAIL)) {
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = "Invalid email address";
     }
-    if (empty($admin_password)) {
+    if (empty($password)) {
         $passcode_err = "Please enter your passcode";
-    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $admin_password)) {
+    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $password)) {
         $passcode_err = "Invalid Passcode. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 digit, 1 special character, and be 8-16 characters long.";
     }
 
     if (empty($email_err) && empty($passcode_err)) {
         //login procedure
+        sleep(2);
+
+        $query = "SELECT * FROM admin_table WHERE admin_email_address = ?";
+        $stmt = mysqli_prepare($conn,$query);
+        mysqli_stmt_bind_param($stmt, "s",$email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($result) == 0 ) {
+            $doc_query = "SELECT * FROM doctor_table WHERE doctor_email_address = ?";
+            $doc_stmt = mysqli_prepare($conn,$doc_query);
+            mysqli_stmt_bind_param($doc_stmt,"s",$email);
+            mysqli_stmt_execute($doc_stmt);
+            $doc_result = mysqli_stmt_get_result($doc_stmt);
+
+            if (mysqli_num_rows($doc_result) == 0) {
+                $_SESSION['error'] = "Wrong Email Address";
+            }
+
+            else {
+                $rows = mysqli_fetch_all($doc_result, MYSQLI_ASSOC);
+                foreach ($rows as $row) {
+                    if ($row["doctor_status"] == 'Inactive') {
+                        $_SESSION['error'] = "Your account is inactive, Please contact admin";
+                    }
+                    else {
+                        //confirm if passcode matches, with time it will be hashed
+                        if($password == $row["doctor_password"]) {
+                            $_SESSION['admin_id'] = $row['doctor_id'];
+                            $_SESSION['type'] = 'Doctor';
+                            header("Location:doctor_schedule.php");
+                            exit();
+                        }
+                        else {
+                            $_SESSION['error'] = "Wrong doctor password";
+                        }
+                    }
+                }
+            }
+
+        }
+
+        else {
+            $admin_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($admin_result as $admin_row) {
+                if ($password == $admin_row["admin_password"]) {
+                    $_SESSION['admin_id'] = $admin_row['admin_id'];
+                    $_SESSION['type'] = 'Admin';
+                    header("location:dashboard.php");
+                    exit();
+                }
+                else {
+                    $_SESSION['error'] = "Wrong admin password";
+                }
+            }
+
+        }
+
     }
 
 }
@@ -70,6 +129,20 @@ if(isset($_POST['admin_login'])) {
             font-weight: 400;
             line-height: 1.2;
             margin-top: 0;
+        }
+        .success-message, .error-message, .info-message {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            margin: 1rem auto;
+            max-width: 700px;
+            width: 100%;
+        }
+        .error-message {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
         }
         form .input {
             margin-bottom: 1rem;
@@ -129,7 +202,12 @@ if(isset($_POST['admin_login'])) {
    <main class="form-signin">
        <form action="" method="post">
            <h1 class="head">Doctor Appointment Management System</h1>
-
+           <?php
+           if (isset($_SESSION['error'])) {
+               echo '<div class="error-message">' .$_SESSION['error']. '</div>';
+               unset($_SESSION['error']);
+           }
+           ?>
            <div class="input">
                <input type="text" name="admin_email" placeholder="Enter Email Address...">
                <div class="error"><?php echo $email_err?></div>
