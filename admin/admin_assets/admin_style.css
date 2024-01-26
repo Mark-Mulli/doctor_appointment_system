@@ -50,13 +50,44 @@ body {
     z-index: 1;
     color: #fff;
 }
-.icon-rotate {
-    transform: rotate(-15deg);
-}
+/*.icon-rotate {*/
+/*    transform: rotate(-15deg);*/
+/*}*/
 .sidebar-text {
     display: inline;
     margin-left: 1rem;
     margin-right: 1rem;
 }
+hr {
+    border: 0;
+}
+.divider {
+    margin: 0 1rem;
+    border-top: 1px solid rgba(255,255,255,.15);
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+.sidebar-item {
+    position: relative;
+    display: block;
+    /* width: 100%; */
+    text-align: left;
+    padding: 1rem;
+    width: 14rem;
+}
+.sidebar-link {
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-size: .85rem;
+}
+.sidebar-link i {
+    margin-right: 0.25rem;
+    color: rgba(255,255,255,.3);
+}
+.sidebar-link:hover span, .sidebar-link:hover i {
+    color: #fff;
+}
+
 
 
