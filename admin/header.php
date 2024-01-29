@@ -69,6 +69,24 @@
             </div>
 
         </ul>
+        <!--end of sidebar-->
+
+        <!--content wrapper-->
+        <div id="content-wrapper" class="content-wrapper">
+            <div class="content">
+
+                <nav class="navbar">
+                <!--menu bar-->
+                    <ul class="navbar-nav">
+                        <div class="topbar-divider"></div>
+
+                    </ul>
+
+                </nav>
+
+            </div>
+
+        </div>
 
 
 

@@ -178,3 +178,50 @@ hr {
     }
 }
 
+.content-wrapper {
+    background-color: #f8f9fc;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1 0 auto;
+}
+.navbar {
+    height: 4.375rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    background-color: #fff;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+ul {
+    margin-top: 0;
+}
+.navbar-nav {
+    flex-direction: row;
+    margin-left: auto;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.topbar-divider {
+    width: 0;
+    border-right: 1px solid #e3e6f0;
+    height: calc(4.375rem - 2rem);
+    margin: auto 1rem;
+    display: block;
+}
+
+@media screen and (max-width: 576px) {
+    .topbar-divider {
+        display: none;
+    }
+}
+
