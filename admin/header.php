@@ -80,6 +80,33 @@
                     <ul class="navbar-nav">
                         <div class="topbar-divider"></div>
 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-link" id="userDropdown">
+                                <span class="name" id="user_profile_name">
+                                    John Smith
+                                </span>
+                                <img src="" alt="" class="img-profile" id="user_profile_image">
+                            </a>
+
+                            <!--dropdown user information-->
+                            <div class="dropdown-menu" id="dropdownMenu">
+
+                                <a href="#" class="dropdown-item">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a href="#" class="dropdown-item" data-toggle="modal" target="#logoutModal">
+                                    <i class="fa fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+
+                            </div>
+
+                        </li>
+
                     </ul>
 
                 </nav>
@@ -97,6 +124,24 @@
             var bodyElement = document.getElementById('mainBody');
             bodyElement.classList.toggle('mobile-view');
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownLink = document.getElementById('userDropdown');
+            var dropdownMenu = document.getElementById('dropdownMenu');
+
+            dropdownLink.addEventListener('click', function (event) {
+                event.stopPropagation(); // Prevents the event from reaching the window.onclick handler
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropdown-link')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            }
+        });
+
     </script>
 
 

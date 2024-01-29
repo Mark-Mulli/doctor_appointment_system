@@ -218,10 +218,117 @@ ul {
     margin: auto 1rem;
     display: block;
 }
-
 @media screen and (max-width: 576px) {
     .topbar-divider {
         display: none;
     }
+    .dropdown-menu {
+        width: calc(100% - 1.5rem);
+        right: 0.75rem;
+    }
 }
+.dropdown {
+    position: relative;
+}
+.dropdown-link {
+    color: #d1d3e2;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+[role=button] {
+    cursor: pointer;
+}
+.name {
+    color: #858796;
+    margin-right: 0.5rem;
+    display: inline;
+    font-size: 80%;
+    font-weight: 400;
+}
+@media screen and (max-width: 992px) {
+    .name {
+        display: none;
+    }
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.img-profile {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+.dropdown-menu {
+    width: auto;
+    right: 0;
+    position: absolute;
+    font-size: .85rem;
+    float: none;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    left: auto;
+    top: 100%;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    color: #858796;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    animation-name: growIn;
+    animation-duration: .2s;
+}
+.show {
+    display: block;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #3a3b45;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    text-decoration: none;
+}
+.fa fa-user, .fa fa-sign-out-alt {
+    color: #d1d3e2;
+    margin-right: 0.5rem;
+    font-weight: 900;
+    font-family: "Font Awesome 6 Free";
+    text-align: center;
+    width: 1.25em;
+    font-size: .875em;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #eaecf4;
+}
+
+
+
+
+
 
