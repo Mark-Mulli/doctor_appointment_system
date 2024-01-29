@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="admin_assets/admin_style.css">
     <!--fonts-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <title>Administrator</title>
 </head>
-<body id="page-top">
+<body>
 
     <div class="wrap">
-        <ul class="sidebar">
+        <ul class="sidebar" id="sidenav">
             <a href="#" class="sidebar-brand">
 <!--                <div class="icon-rotate">-->
 <!--                </div>-->
@@ -73,6 +73,15 @@
 
 
     </div>
+
+    <script>
+        function reducesidebar() {
+            var sidenav = document.getElementById('sidenav');
+
+        }
+
+
+    </script>
 
 
 </body>
