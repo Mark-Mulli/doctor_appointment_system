@@ -64,9 +64,9 @@
 
 
             <!--sidebar toggler-->
-            <diiv class="toggler">
-                <button id="sidebarToggle">rr</button>
-            </diiv>
+            <div class="toggler">
+                <button id="sidebarToggle"></button>
+            </div>
 
         </ul>
 
