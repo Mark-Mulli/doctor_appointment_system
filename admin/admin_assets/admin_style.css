@@ -113,7 +113,43 @@ hr {
     margin-right: 0.1rem;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (min-width: 768px){
+    body.mobile-view .sidebar {
+        width: 6.5rem;
+        overflow: visible;
+    }
+    body.mobile-view .sidebar-text {
+        display: none;
+    }
+    body.mobile-view .sidebar-item {
+        width: 6.5rem;
+    }
+    body.mobile-view .sidebar-link {
+        text-align: center;
+        padding: 0.75rem 1rem;
+        display: block;
+    }
+    body.mobile-view .sidebar-link i {
+        margin-right: 0;
+        font-size: .85rem;
+    }
+    body.mobile-view .sidebar-link span {
+        display: block;
+        font-size: .65rem;
+    }
+    body.mobile-view .toggler #sidebarToggle::before {
+        color: rgba(255,255,255,.5);
+        font-weight: 900;
+        content: '\f105';
+        font-family: "Font Awesome 6 Free";
+        margin-right: 0.1rem;
+    }
+    body.mobile-view .toggler #sidebarToggle::after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .sidebar {
         width: 6.5rem;
         overflow: visible;
@@ -137,6 +173,8 @@ hr {
         display: block;
         font-size: .65rem;
     }
-
+    .toggler #sidebarToggle {
+        display: none;
+    }
 }
 
