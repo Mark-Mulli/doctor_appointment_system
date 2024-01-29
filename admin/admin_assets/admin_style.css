@@ -88,6 +88,10 @@ hr {
 .sidebar-link:hover span, .sidebar-link:hover i {
     color: #fff;
 }
+.toggler {
+    text-align: center;
+    display: inline;
+}
 
 
 

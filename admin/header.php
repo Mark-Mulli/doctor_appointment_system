@@ -62,6 +62,12 @@
                 </a>
             </li>
 
+
+            <!--sidebar toggler-->
+            <diiv class="toggler">
+                <button id="sidebarToggle">rr</button>
+            </diiv>
+
         </ul>
 
 

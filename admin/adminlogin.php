@@ -23,7 +23,7 @@ if(isset($_POST['admin_login'])) {
     }
     if (empty($password)) {
         $passcode_err = "Please enter your passcode";
-    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $password)) {
+    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&.])[A-Za-z\d@$!%*#?&]{8,16}$/", $password)) {
         $passcode_err = "Invalid Passcode. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 digit, 1 special character, and be 8-16 characters long.";
     }
 

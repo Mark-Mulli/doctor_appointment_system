@@ -56,7 +56,7 @@ if (isset($_POST['register_submit'])) {
                     $mail->Host       = 'smtp.gmail.com'; // SMTP server
                     $mail->SMTPAuth   = true;
                     $mail->Username   = 'markmulli001@gmail.com';
-                    $mail->Password   = '*****';
+                    $mail->Password   = '******';
                     $mail->SMTPSecure = 'tls';
                     $mail->Port       = 587;
 

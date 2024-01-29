@@ -44,7 +44,7 @@ if (isset($_POST['register_submit'])) {
     // Passcode validation
     if (empty($patient_password)) {
         $passcode_ERR = "Passcode is required";
-    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/", $patient_password)) {
+    } elseif (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&.]{8,16}$/", $patient_password)) {
         $passcode_ERR = "Invalid Passcode. Must contain at least 1 uppercase letter, 1 lowercase letter, 1 digit, 1 special character, and be 8-16 characters long.";
     }
 
