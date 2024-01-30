@@ -76,8 +76,15 @@
             <div class="content">
 
                 <nav class="navbar">
+                <!--  button    -->
+                <button class="btn-menu" onclick="toggleSidebar()">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+
                 <!--menu bar-->
                     <ul class="navbar-nav">
+
                         <div class="topbar-divider"></div>
 
                         <li class="dropdown">
@@ -120,6 +127,11 @@
     </div>
 
     <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidenav');
+            sidebar.classList.toggle('sidebar-toggled');
+        }
+
         function toggleMobileView() {
             var bodyElement = document.getElementById('mainBody');
             bodyElement.classList.toggle('mobile-view');
@@ -141,6 +153,8 @@
                 }
             }
         });
+
+
 
     </script>
 
