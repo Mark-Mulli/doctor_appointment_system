@@ -1,3 +1,3 @@
 <?php
-echo "Welcome Doctor";
+echo "Welcome Doctors";
 ?>
