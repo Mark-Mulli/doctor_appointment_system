@@ -1,5 +1,17 @@
 <?php
-    include 'header.php';
+
+include 'connectdb.php';
+
+function get_total_patient($conn) {
+    $query = "SELECT * FROM patient_table";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $num_result = mysqli_num_rows($result);
+    return $num_result;
+}
+
+include 'header.php';
 ?>
 
 
@@ -104,7 +116,7 @@
                                 Total Registered Patients
                             </div>
                             <div class="number">
-                                0  <?php ?>
+                                 <?php echo get_total_patient($conn) ?>
                             </div>
                         </div>
                         <div class="bottom-row">

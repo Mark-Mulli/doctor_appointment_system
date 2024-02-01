@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,6 +31,9 @@
             <hr class="divider">
 
             <!--Nav item dashboard-->
+            <?php
+                if ($_SESSION['type'] == 'Admin') {
+            ?>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <i class="fa fa-tachometer-alt"></i>
@@ -46,6 +52,9 @@
                     <span>Patient</span>
                 </a>
             </li>
+            <?php
+                }
+            ?>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <i class="fa fa-user-clock"></i>
@@ -58,13 +67,31 @@
                     <span>Appointment</span>
                 </a>
             </li>
+
+            <?php
+                if ($_SESSION['type'] == 'Admin') {
+            ?>
+
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <i class="fa fa-id-card"></i>
                     <span>Profile</span>
                 </a>
             </li>
-
+            <?php
+                }
+                else {
+            ?>
+            <!--doctor's profile-->
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa fa-id-card"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <?php
+                }
+            ?>
 
             <!--sidebar toggler-->
             <div class="toggler">
