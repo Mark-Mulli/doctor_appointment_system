@@ -12,7 +12,10 @@
 </head>
 <body id="mainBody">
 
+    <!--page wrapper-->
     <div class="wrap">
+
+        <!--sidebar-->
         <ul class="sidebar" id="sidenav">
             <a href="#" class="sidebar-brand">
 <!--                <div class="icon-rotate">-->
@@ -73,91 +76,60 @@
 
         <!--content wrapper-->
         <div id="content-wrapper" class="content-wrapper">
+
+            <!--main content-->
             <div class="content">
 
+                <!--topbar-->
                 <nav class="navbar">
-                <!--  button    -->
-                <button class="btn-menu" onclick="toggleSidebar()">
-                    <i class="fa fa-bars"></i>
-                </button>
+                    <!--  button    -->
+                    <button class="btn-menu" onclick="toggleSidebar()">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
 
-                <!--menu bar-->
-                    <ul class="navbar-nav">
+                    <!--menu bar-->
+                        <ul class="navbar-nav">
 
-                        <div class="topbar-divider"></div>
+                            <div class="topbar-divider"></div>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-link" id="userDropdown">
-                                <span class="name" id="user_profile_name">
-                                    John Smith
-                                </span>
-                                <img src="" alt="" class="img-profile" id="user_profile_image">
-                            </a>
-
-                            <!--dropdown user information-->
-                            <div class="dropdown-menu" id="dropdownMenu">
-
-                                <a href="#" class="dropdown-item">
-                                    <i class="fa fa-user"></i>
-                                    Profile
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-link" id="userDropdown">
+                                    <span class="name" id="user_profile_name">
+                                        John Smith
+                                    </span>
+                                    <img src="" alt="" class="img-profile" id="user_profile_image">
                                 </a>
 
-                                <div class="dropdown-divider"></div>
+                                <!--dropdown user information-->
+                                <div class="dropdown-menu" id="dropdownMenu">
 
-                                <a href="#" class="dropdown-item" data-toggle="modal" target="#logoutModal">
-                                    <i class="fa fa-sign-out-alt"></i>
-                                    Logout
-                                </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-user"></i>
+                                        Profile
+                                    </a>
 
-                            </div>
+                                    <div class="dropdown-divider"></div>
 
-                        </li>
-
-                    </ul>
-
+                                    <a href="#" class="dropdown-item" data-toggle="modal" target="#logoutModal">
+                                        <i class="fa fa-sign-out-alt"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
                 </nav>
-
-            </div>
-
-        </div>
+                <!--end of topbar-->
 
 
-
-    </div>
-
-    <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById('sidenav');
-            sidebar.classList.toggle('sidebar-toggled');
-        }
-
-        function toggleMobileView() {
-            var bodyElement = document.getElementById('mainBody');
-            bodyElement.classList.toggle('mobile-view');
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            var dropdownLink = document.getElementById('userDropdown');
-            var dropdownMenu = document.getElementById('dropdownMenu');
-
-            dropdownLink.addEventListener('click', function (event) {
-                event.stopPropagation(); // Prevents the event from reaching the window.onclick handler
-                dropdownMenu.classList.toggle('show');
-            });
-
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function (event) {
-                if (!event.target.matches('.dropdown-link')) {
-                    dropdownMenu.classList.remove('show');
-                }
-            }
-        });
+                <!--start of the page content-->
+                <div class="container-fluid">
 
 
 
-    </script>
 
 
-</body>
-</html>
+
+
+
+
