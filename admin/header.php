@@ -35,7 +35,7 @@ session_start();
                 if ($_SESSION['type'] == 'Admin') {
             ?>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="dashboard.php" class="sidebar-link">
                     <i class="fa fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -73,7 +73,7 @@ session_start();
             ?>
 
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="admin_profile.php" class="sidebar-link">
                     <i class="fa fa-id-card"></i>
                     <span>Profile</span>
                 </a>

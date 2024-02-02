@@ -18,6 +18,8 @@
 </div>
     <!--end of wrap-->
 
+    <a href="#page-top" class="scroll"></a>
+
 <script>
     function toggleSidebar() {
         var sidebar = document.getElementById('sidenav');
