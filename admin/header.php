@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'connectdb.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -120,12 +121,39 @@ session_start();
 
                             <div class="topbar-divider"></div>
 
+                            <?php
+                            $user_name = '';
+                            $user_profile_image = '';
+
+                            if ($_SESSION['type'] == 'Admin') {
+                                $query = "SELECT * FROM admin_table WHERE admin_id = ?";
+                                $stmt = mysqli_prepare($conn,$query);
+                                mysqli_stmt_bind_param($stmt, 'i', $_SESSION['admin_id']);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
+
+                                $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                                foreach ( $rows as $row) {
+                                    $user_name = $row['admin_name'];
+                                    $user_profile_image = $row['hospital_logo'];
+                                }
+
+                            }
+
+
+
+
+
+
+                            ?>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-link" id="userDropdown">
                                     <span class="name" id="user_profile_name">
-                                        John Smith
+                                        <?php echo $user_name; ?>
                                     </span>
-                                    <img src="" alt="" class="img-profile" id="user_profile_image">
+                                    <img src="<?php echo $user_profile_image; ?>" alt="" class="img-profile" id="user_profile_image">
                                 </a>
 
                                 <!--dropdown user information-->
@@ -138,7 +166,7 @@ session_start();
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a href="#" class="dropdown-item" data-toggle="modal" target="#logoutModal">
+                                    <a href="logout.php" class="dropdown-item" data-toggle="modal" target="#logoutModal">
                                         <i class="fa fa-sign-out-alt"></i>
                                         Logout
                                     </a>

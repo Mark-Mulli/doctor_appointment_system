@@ -452,6 +452,34 @@ img {
     line-height: 1.2;
     margin-top: 0;
 }
+.success-message, .error-message, .info-message {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+    max-width: 83.33333%;
+    flex: 0 0 83.33333%;
+    width: 100%;
+}
+
+.info-message {
+    color: #055160;
+    background-color: #cff4fc;
+    border-color: #b6effb;
+}
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -540,7 +568,7 @@ img {
     padding-left: 0.75rem;
 }
 @media screen and (min-width: 768px) {
-    .column-10 {
+    .column-10, .success-message, .error-message {
         flex: 0 0 66.66667%;
         max-width: 66.66667%;
     }
@@ -647,6 +675,9 @@ label {
     font-size: inherit;
     line-height: inherit;
 }
+.input-group .error {
+    color: #B94A48;
+}
 .img-thumbnail {
     padding: 0.25rem;
     background-color: #fff;
@@ -672,6 +703,8 @@ label {
     background: #5a5c69;
     color: #fff;
 }
+
+
 
 
 
