@@ -12,6 +12,9 @@ include 'connectdb.php';
     <link rel="stylesheet" href="admin_assets/admin_style.css">
     <!--fonts-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Custom styles for this page -->
+    <link rel="stylesheet" href="../datatables/dataTables.bootstrap4.min.css">
+
     <title>Administrator</title>
 </head>
 <body id="mainBody">
@@ -48,7 +51,7 @@ include 'connectdb.php';
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="patient.php" class="sidebar-link">
                     <i class="fa fa-procedures"></i>
                     <span>Patient</span>
                 </a>
