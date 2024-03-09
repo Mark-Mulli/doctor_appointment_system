@@ -76,19 +76,28 @@
                 update_admin($conn,  $admin_email_address, $admin_name, $hospital_name, $hospital_address, $hospital_contact_no, $hospital_logo, $_SESSION['admin_id']);
         }
     }
-function update_admin($conn, $email, $name,$hospName, $hospAddr, $hospCont, $hospLogo, $adm_id) {
-    $update_query = "UPDATE admin_table SET admin_email_address = ?, admin_name = ?, hospital_name = ?, hospital_address = ?, hospital_contact_no = ?, hospital_logo = ? WHERE admin_id = ?";
+function update_admin($conn, $email, $name, $hospName, $hospAddr, $hospCont, $hospLogo, $adm_id) {
+    // Directory to store uploaded files
+    $target_dir = "admin_assets/images/";
 
-    $update_stmt = mysqli_prepare($conn, $update_query);
-    mysqli_stmt_bind_param($update_stmt, "ssssssi", $email,$name,$hospName,$hospAddr,$hospCont,$hospLogo,$adm_id);
+    // File path where the uploaded file will be stored
+    $target_file = $target_dir . basename($hospLogo);
 
-    if (mysqli_stmt_execute($update_stmt)) {
-        $_SESSION['success'] = "Profile updated successfully.";
+    // Move the uploaded file to the specified directory
+    if (move_uploaded_file($_FILES["hospital_logo"]["tmp_name"], $target_file)) {
+        $update_query = "UPDATE admin_table SET admin_email_address = ?, admin_name = ?, hospital_name = ?, hospital_address = ?, hospital_contact_no = ?, hospital_logo = ? WHERE admin_id = ?";
+        $update_stmt = mysqli_prepare($conn, $update_query);
+        mysqli_stmt_bind_param($update_stmt, "ssssssi", $email, $name, $hospName, $hospAddr, $hospCont, $target_file, $adm_id);
+
+        if (mysqli_stmt_execute($update_stmt)) {
+            $_SESSION['success'] = "Profile updated successfully.";
+        } else {
+            $_SESSION['err'] = "Error in updating your profile. Please try again.";
+        }
     } else {
-        $_SESSION['err'] = "Error in updating your profile. Please try again.";
+        $_SESSION['err'] = "Sorry, there was an error uploading your file.";
     }
 }
-
 
 
 ?>

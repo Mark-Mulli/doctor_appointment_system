@@ -134,7 +134,7 @@ include 'connectdb.php';
 
                                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                                foreach ( $rows as $row) {
+                                foreach ($rows as $row) {
                                     $user_name = $row['admin_name'];
                                     $user_profile_image = $row['hospital_logo'];
                                 }
@@ -165,7 +165,6 @@ include 'connectdb.php';
                                     </a>
 
                                     <div class="dropdown-divider"></div>
-
                                     <a href="logout.php" class="dropdown-item" data-toggle="modal" target="#logoutModal">
                                         <i class="fa fa-sign-out-alt"></i>
                                         Logout
