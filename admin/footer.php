@@ -48,6 +48,9 @@
         }
     });
 </script>
+
+<!--    core javascript-->
+<script src="../jquery/jquery.min.js"></script>
 <!-- Page level plugins -->
 <script src="../datatables/jquery.dataTables.min.js"></script>
 <script src="../datatables/dataTables.bootstrap4.min.js"></script>

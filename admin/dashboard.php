@@ -20,7 +20,7 @@ include 'header.php';
 
     <div class="row">
         <div class="column">
-            <div class="card border-left">
+            <div class="card border-left h-100">
                 <div class="card-body">
                     <div class="no-gutters">
                         <div class="top-row">
@@ -42,7 +42,7 @@ include 'header.php';
         </div>
 
         <div class="column">
-            <div class="card border-left">
+            <div class="card border-left h-100">
                 <div class="card-body">
                     <div class="no-gutters">
                         <div class="top-row">
@@ -64,7 +64,7 @@ include 'header.php';
         </div>
 
         <div class="column">
-            <div class="card border-left">
+            <div class="card border-left h-100">
                 <div class="card-body">
                     <div class="no-gutters">
                         <div class="top-row">
@@ -86,7 +86,7 @@ include 'header.php';
         </div>
 
         <div class="column">
-            <div class="card border-left">
+            <div class="card border-left h-100">
                 <div class="card-body">
                     <div class="no-gutters">
                         <div class="top-row">
@@ -108,7 +108,7 @@ include 'header.php';
         </div>
 
         <div class="column">
-            <div class="card border-left">
+            <div class="card border-left h-100">
                 <div class="card-body">
                     <div class="no-gutters">
                         <div class="top-row">
