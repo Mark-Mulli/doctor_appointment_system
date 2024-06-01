@@ -1,1 +1,1 @@
-# doctor_appointment_system
+# Doctor Appointment Management System
