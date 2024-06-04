@@ -89,11 +89,6 @@ This web app allows registered users to schedule appointments with a list of ava
   <img src="dams_mockup_screen/admin_patient_records.png" alt="Display admin patient records page Mockup">
 </p>
 
-### Admin Dashboard Page
-<p align="center">
-  <img src="dams_mockup_screen/admin_dashboard.png" alt="Display admin dashboard page Mockup">
-</p>
-
 ### Admin Profile Page
 <p align="center">
   <img src="dams_mockup_screen/admin_profile_page.png" alt="Display admin profile page Mockup">
